@@ -31,9 +31,9 @@ test( "typeSafe checks numeric types", t => {
 	t.is( wrappedAdd( 1, 5 ), 6 );
 	t.is( wrappedAdd( 3, 5 ), 8 );
 
-	t.throws( wrappedAdd.bind( 1, "a" ) );
-	t.throws( wrappedAdd.bind( 1, [ 2 ] ) );
-	t.throws( wrappedAdd.bind( 1, { number: 2 } ) );
+	t.throws( wrappedAdd.bind( this, 1, "a" ) );
+	t.throws( wrappedAdd.bind( this, 1, [ 2 ] ) );
+	t.throws( wrappedAdd.bind( this, 1, { number: 2 } ) );
 } );
 
 test( "typeSafe checks string types", t => {
@@ -59,9 +59,9 @@ test( "typeSafe checks boolean types", t => {
 	t.is( wrappedSameBool( false, true ), false );
 	t.is( wrappedSameBool( true, true ), true );
 
-	t.throws( wrappedSameBool.bind( false, undefined ) );
-	t.throws( wrappedSameBool.bind( false, null ) );
-	t.throws( wrappedSameBool.bind( false, null ) );
+	t.throws( wrappedSameBool.bind( this, false, undefined ) );
+	t.throws( wrappedSameBool.bind( this, false, null ) );
+	t.throws( wrappedSameBool.bind( this, false, null ) );
 } );
 
 test( "typeSafe checks object types", t => {
