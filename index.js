@@ -20,7 +20,7 @@ function typeSafe( func, argTypes, returnType ) {
       }
     }
 
-    var result = func.apply( null, arguments );console.log(result);
+    var result = func.apply( null, arguments );
     var resultType;
 
     if ( result === null ) {
